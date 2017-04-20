@@ -1,4 +1,4 @@
-# prettyerr [![GoDoc](https://godoc.org/github.com/t11e/prettyerr?status.svg)](http://godoc.org/github.com/t11e/prettyerr) [![Report card](https://goreportcard.com/badge/github.com/t11e/prettyerr)](https://goreportcard.com/report/github.com/t11e/prettyerr)
+# prettyerr [![Build Status](https://travis-ci.org/t11e/prettyerr.svg)](https://travis-ci.org/t11e/prettyerr) [![GoDoc](https://godoc.org/github.com/t11e/prettyerr?status.svg)](http://godoc.org/github.com/t11e/prettyerr) [![Report card](https://goreportcard.com/badge/github.com/t11e/prettyerr)](https://goreportcard.com/report/github.com/t11e/prettyerr)
 
 Adds pretty error printing to the errors created by 
 [github.com/pkg/errors](https://github.com/pkg/errors).
