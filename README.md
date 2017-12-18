@@ -39,13 +39,13 @@ Caused by: ran out of polish
 
 # Contributions
 
-Clone this repository into your GOPATH and use [Glide](https://github.com/Masterminds/glide) to install its dependencies.
+Clone this repository into your GOPATH and use [dep](https://github.com/golang/dep) to install its dependencies.
 
 ```shell
-brew install glide
+brew install dep
 go get github.com/t11e/prettyerr
 cd "$GOPATH"/src/github.com/t11e/prettyerr
-glide install --strip-vendor
+dep ensure
 ```
 
 You can then run the tests:
