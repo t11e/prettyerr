@@ -60,7 +60,7 @@ func generate(w io.Writer, err error, prefix string, flags Flag) {
 			lines := make([]string, 0, len(stack))
 			for _, frame := range stack {
 				line := fmt.Sprintf("%+v", frame)
-				line = strings.Replace(line, "\n\t", " (", 1) + ")"
+				line = strings.Replace(line, "\n\t", "\t", 1)
 				lines = append(lines, line)
 			}
 			if flags&FlagNoTrailingGoRoot != 0 {
@@ -82,7 +82,7 @@ func generate(w io.Writer, err error, prefix string, flags Flag) {
 					s = strings.Replace(s, gopath, "$GOPATH", 1)
 				}
 				if flags&FlagNoLineNumbers != 0 {
-					s = regexLineNums.ReplaceAllString(s, ")")
+					s = regexLineNums.ReplaceAllString(s, "")
 				}
 				fmt.Fprintf(w, "%s    at %s\n", prefix, s)
 			}
@@ -97,7 +97,7 @@ func generate(w io.Writer, err error, prefix string, flags Flag) {
 	}
 }
 
-var regexLineNums = regexp.MustCompile(`:\d+\)$`)
+var regexLineNums = regexp.MustCompile(`:\d+$`)
 
 // currentGOPATH exposes the current GOPATH.
 // See http://stackoverflow.com/questions/32649770/how-to-get-current-gopath-from-code

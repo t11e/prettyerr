@@ -60,11 +60,11 @@ func ExampleFormat() {
 	})
 	// Output: problem polishing widget: ran out of polish
 	// Caused by: ran out of polish
-	//     at github.com/t11e/prettyerr_test.ExampleFormat ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-	//     at testing.runExample ($GOROOT/src/testing/example.go)
-	//     at testing.runExamples ($GOROOT/src/testing/example.go)
-	//     at testing.(*M).Run ($GOROOT/src/testing/testing.go)
-	//     at main.main (github.com/t11e/prettyerr/_test/_testmain.go)
+	//     at github.com/t11e/prettyerr_test.ExampleFormat	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+	//     at testing.runExample	$GOROOT/src/testing/example.go
+	//     at testing.runExamples	$GOROOT/src/testing/example.go
+	//     at testing.(*M).Run	$GOROOT/src/testing/testing.go
+	//     at main.main	github.com/t11e/prettyerr/_test/_testmain.go
 }
 
 func TestFormat_String_NoStacks_NoCauses(t *testing.T) {
@@ -226,8 +226,8 @@ errorsNew
 			err: pkgErrorsNew("pkgErrorsNew"),
 			expected: `
 pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
@@ -240,25 +240,25 @@ return_errorsNew
 			err: return_pkgErrorsNew("return_pkgErrorsNew"),
 			expected: `
 return_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.return_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.return_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
 			err: withStack_errorsNew("withStack_errorsNew"),
 			expected: `
 withStack_errorsNew
-    at github.com/t11e/prettyerr_test.withStack_errorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.withStack_errorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
 			err: withStack_pkgErrorsNew("withStack_pkgErrorsNew"),
 			expected: `
 withStack_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.withStack_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.withStack_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
@@ -277,16 +277,16 @@ extra message: withMessage_pkgErrorsNew
 			err: wrap_errorsNew("wrap_errorsNew", "extra message"),
 			expected: `
 extra message: wrap_errorsNew
-    at github.com/t11e/prettyerr_test.wrap_errorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.wrap_errorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
 			err: wrap_pkgErrorsNew("wrap_pkgErrorsNew", "extra message"),
 			expected: `
 extra message: wrap_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_NoCauses	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 	} {
@@ -317,8 +317,8 @@ errorsNew
 			err: pkgErrorsNew("pkgErrorsNew"),
 			expected: `
 pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
@@ -331,17 +331,17 @@ return_errorsNew
 			err: return_pkgErrorsNew("return_pkgErrorsNew"),
 			expected: `
 return_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.return_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.return_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
 			err: withStack_errorsNew("withStack_errorsNew"),
 			expected: `
 withStack_errorsNew
-    at github.com/t11e/prettyerr_test.withStack_errorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.withStack_errorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 Caused by: withStack_errorsNew
 `,
 		},
@@ -349,12 +349,12 @@ Caused by: withStack_errorsNew
 			err: withStack_pkgErrorsNew("withStack_pkgErrorsNew"),
 			expected: `
 withStack_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.withStack_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.withStack_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 Caused by: withStack_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.withStack_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.withStack_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
@@ -369,17 +369,17 @@ Caused by: withMessage_errorsNew
 			expected: `
 extra message: withMessage_pkgErrorsNew
 Caused by: withMessage_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.withMessage_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.withMessage_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
 			err: wrap_errorsNew("wrap_errorsNew", "extra message"),
 			expected: `
 extra message: wrap_errorsNew
-    at github.com/t11e/prettyerr_test.wrap_errorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.wrap_errorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 Caused by: extra message: wrap_errorsNew
 Caused by: wrap_errorsNew
 `,
@@ -388,13 +388,13 @@ Caused by: wrap_errorsNew
 			err: wrap_pkgErrorsNew("wrap_pkgErrorsNew", "extra message"),
 			expected: `
 extra message: wrap_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 Caused by: extra message: wrap_pkgErrorsNew
 Caused by: wrap_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 	} {
@@ -419,26 +419,26 @@ func TestFormat_String_Prefix(t *testing.T) {
 			indent: "",
 			expected: `
 extra message: wrap_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1 ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 Caused by: extra message: wrap_pkgErrorsNew
 Caused by: wrap_pkgErrorsNew
-    at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-    at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1 ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+    at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+    at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 		{
 			indent: "abcd ",
 			expected: `
 abcd extra message: wrap_pkgErrorsNew
-abcd     at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-abcd     at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1 ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+abcd     at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+abcd     at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 abcd Caused by: extra message: wrap_pkgErrorsNew
 abcd Caused by: wrap_pkgErrorsNew
-abcd     at github.com/t11e/prettyerr_test.pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-abcd     at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
-abcd     at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1 ($GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go)
+abcd     at github.com/t11e/prettyerr_test.pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+abcd     at github.com/t11e/prettyerr_test.wrap_pkgErrorsNew	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
+abcd     at github.com/t11e/prettyerr_test.TestFormat_String_Prefix.func1	$GOPATH/src/github.com/t11e/prettyerr/prettyerr_test.go
 `,
 		},
 	} {
